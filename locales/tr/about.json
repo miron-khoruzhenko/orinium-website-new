@@ -1,0 +1,12 @@
+{
+  "title": "ORINIUM Hakkında",
+  "description1": "ORINIUM, robotik, yapay zeka ve otonom sistemleri geliştirmeye odaklanan öğrenci liderliğinde bir araştırma ve geliştirme girişimidir. 2022'de Yıldız Teknik Üniversitesi'nde kurulan ekibimiz, akademik mükemmelliği pratik yenilikle birleştiriyor.",
+  "description2": "Misyonumuz, yer araçlarından akıllı kontrol sistemlerine kadar otonom sistemlerde mümkün olanın sınırlarını zorlayan son teknoloji çözümler geliştirmektir.",
+  "milestones": {
+    "title": "Yolculuğumuz",
+    "2022": "Yıldız Teknik Üniversitesi'nde kuruldu",
+    "2023": "BR-01 ve ARES prototipleri geliştirildi",
+    "2024": "Endüstri ortaklıkları ve saha testleri",
+    "2025": "Yeni alanlarda araştırma genişletiliyor"
+  }
+}

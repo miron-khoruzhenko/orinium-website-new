@@ -1,0 +1,12 @@
+{
+  "title": "About ORINIUM",
+  "description1": "ORINIUM is a student-led research and development startup focused on advancing robotics, artificial intelligence, and autonomous systems. Founded in 2022 at Yıldız Technical University, we combine academic excellence with practical innovation.",
+  "description2": "Our mission is to develop cutting-edge solutions that push the boundaries of what's possible in autonomous systems, from ground vehicles to intelligent control systems.",
+  "milestones": {
+    "title": "Our Journey",
+    "2022": "Founded at Yıldız Technical University",
+    "2023": "Developed BR-01 and ARES prototypes",
+    "2024": "Established industry partnerships and field testing",
+    "2025": "Expanding research into new domains"
+  }
+}

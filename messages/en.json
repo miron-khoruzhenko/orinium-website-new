@@ -1,0 +1,141 @@
+{
+  "common": {
+    "nav": {
+      "home": "Home",
+      "about": "About",
+      "rd": "R&D",
+      "projects": "Projects",
+      "partners": "Partners",
+      "team": "Team",
+      "contact": "Contact"
+    }
+  },
+  "home": {
+    "hero": {
+      "subtitle": "Research. Design. Innovate.",
+      "title": "ORINIUM — R&D Solutions for Future Robotics and Autonomous Systems",
+      "cta1": "Explore Projects",
+      "cta2": "Become a Partner",
+      "scroll": "Scroll Down"
+    }
+  },
+  "about": {
+    "title": "About ORINIUM",
+    "description1": "ORINIUM is a student-led research and development startup focused on advancing robotics, artificial intelligence, and autonomous systems. Founded in 2022 at Yıldız Technical University, we combine academic excellence with practical innovation.",
+    "description2": "Our mission is to develop cutting-edge solutions that push the boundaries of what's possible in autonomous systems, from ground vehicles to intelligent control systems.",
+    "milestones": {
+      "title": "Our Journey",
+      "2022": "Founded at Yıldız Technical University",
+      "2023": "Developed BR-01 and ARES prototypes",
+      "2024": "Established industry partnerships and field testing",
+      "2025": "Expanding research into new domains"
+    }
+  },
+  "rd": {
+    "title": "R&D Areas",
+    "subtitle": "Pushing the boundaries of technology through focused research and development",
+    "robotics": {
+      "title": "Robotics",
+      "description": "Design and development of autonomous ground vehicles, mobile robots, and mechanical systems for harsh environments and complex tasks."
+    },
+    "ai": {
+      "title": "Artificial Intelligence",
+      "description": "Machine learning, computer vision, and intelligent control systems for autonomous decision-making and environmental perception."
+    },
+    "embedded": {
+      "title": "Embedded Systems",
+      "description": "Real-time control systems, sensor integration, and low-level programming for robotics applications and autonomous platforms."
+    }
+  },
+  "projects": {
+    "title": "Our Projects",
+    "subtitle": "Innovative solutions developed through rigorous research and testing",
+    "ares": {
+      "fullName": "Autonomous Reconnaissance and Exploration System",
+      "description": "A tracked unmanned ground vehicle designed for harsh terrain navigation, reconnaissance missions, and autonomous exploration in challenging environments.",
+      "spec1": "All-terrain tracked mobility system",
+      "spec2": "Autonomous navigation and obstacle avoidance",
+      "spec3": "Real-time video streaming and sensor data"
+    },
+    "br01": {
+      "fullName": "Balancing Robot - Generation 01",
+      "description": "A self-balancing two-wheeled robot demonstrating advanced control algorithms, real-time stabilization, and dynamic movement capabilities.",
+      "spec1": "PID-based self-balancing control",
+      "spec2": "IMU sensor fusion for stability",
+      "spec3": "Remote control and autonomous modes"
+    }
+  },
+  "partners": {
+    "title": "Our Partners",
+    "subtitle": "Supported by industry and academia"
+  },
+  "team": {
+    "title": "Our Team",
+    "subtitle": "Passionate researchers and engineers driving innovation",
+    "founders": {
+      "title": "Founders",
+      "founder1": {
+        "name": "Ahmet Yılmaz",
+        "role": "Co-Founder & CEO"
+      },
+      "founder2": {
+        "name": "Elif Demir",
+        "role": "Co-Founder & CTO"
+      },
+      "founder3": {
+        "name": "Mehmet Kaya",
+        "role": "Co-Founder & Research Lead"
+      }
+    },
+    "leads": {
+      "title": "Team Leads",
+      "lead1": {
+        "name": "Zeynep Arslan",
+        "role": "Robotics Lead"
+      },
+      "lead2": {
+        "name": "Can Öztürk",
+        "role": "AI & ML Lead"
+      },
+      "lead3": {
+        "name": "Ayşe Şahin",
+        "role": "Embedded Systems Lead"
+      },
+      "lead4": {
+        "name": "Burak Çelik",
+        "role": "Mechanical Design Lead"
+      },
+      "lead5": {
+        "name": "Deniz Aydın",
+        "role": "Electronics Lead"
+      },
+      "lead6": {
+        "name": "Emre Yıldız",
+        "role": "Software Lead"
+      }
+    }
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "location": {
+      "title": "Our Location",
+      "address": "Yıldız Teknopark, Davutpaşa Campus, Esenler, Istanbul, Turkey"
+    },
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message",
+      "submit": "Send Message",
+      "success": "Thank you! We'll get back to you soon.",
+      "subjects": {
+        "general": "General Inquiry",
+        "partnership": "Partnership",
+        "sponsorship": "Sponsorship",
+        "join": "Join Team",
+        "media": "Media",
+        "other": "Other"
+      }
+    }
+  }
+}

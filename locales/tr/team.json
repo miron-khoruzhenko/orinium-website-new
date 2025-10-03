@@ -1,0 +1,46 @@
+{
+  "title": "Ekibimiz",
+  "subtitle": "Yeniliği yönlendiren tutkulu araştırmacılar ve mühendisler",
+  "founders": {
+    "title": "Kurucular",
+    "founder1": {
+      "name": "Ahmet Yılmaz",
+      "role": "Kurucu Ortak & CEO"
+    },
+    "founder2": {
+      "name": "Elif Demir",
+      "role": "Kurucu Ortak & CTO"
+    },
+    "founder3": {
+      "name": "Mehmet Kaya",
+      "role": "Kurucu Ortak & Araştırma Lideri"
+    }
+  },
+  "leads": {
+    "title": "Ekip Liderleri",
+    "lead1": {
+      "name": "Zeynep Arslan",
+      "role": "Robotik Lideri"
+    },
+    "lead2": {
+      "name": "Can Öztürk",
+      "role": "Yapay Zeka Lideri"
+    },
+    "lead3": {
+      "name": "Ayşe Şahin",
+      "role": "Gömülü Sistemler Lideri"
+    },
+    "lead4": {
+      "name": "Burak Çelik",
+      "role": "Mekanik Tasarım Lideri"
+    },
+    "lead5": {
+      "name": "Deniz Aydın",
+      "role": "Elektronik Lideri"
+    },
+    "lead6": {
+      "name": "Emre Yıldız",
+      "role": "Yazılım Lideri"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "rd": "R&D",
+    "projects": "Projects",
+    "partners": "Partners",
+    "team": "Team",
+    "contact": "Contact"
+  }
+}

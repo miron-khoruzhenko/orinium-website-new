@@ -1,0 +1,16 @@
+{
+  "title": "R&D Areas",
+  "subtitle": "Pushing the boundaries of technology through focused research and development",
+  "robotics": {
+    "title": "Robotics",
+    "description": "Design and development of autonomous ground vehicles, mobile robots, and mechanical systems for harsh environments and complex tasks."
+  },
+  "ai": {
+    "title": "Artificial Intelligence",
+    "description": "Machine learning, computer vision, and intelligent control systems for autonomous decision-making and environmental perception."
+  },
+  "embedded": {
+    "title": "Embedded Systems",
+    "description": "Real-time control systems, sensor integration, and low-level programming for robotics applications and autonomous platforms."
+  }
+}

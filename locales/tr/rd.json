@@ -1,0 +1,16 @@
+{
+  "title": "Ar-Ge Alanları",
+  "subtitle": "Odaklanmış araştırma ve geliştirme ile teknolojinin sınırlarını zorluyoruz",
+  "robotics": {
+    "title": "Robotik",
+    "description": "Zorlu ortamlar ve karmaşık görevler için otonom yer araçları, mobil robotlar ve mekanik sistemlerin tasarımı ve geliştirilmesi."
+  },
+  "ai": {
+    "title": "Yapay Zeka",
+    "description": "Otonom karar verme ve çevre algılama için makine öğrenimi, bilgisayarlı görü ve akıllı kontrol sistemleri."
+  },
+  "embedded": {
+    "title": "Gömülü Sistemler",
+    "description": "Robotik uygulamalar ve otonom platformlar için gerçek zamanlı kontrol sistemleri, sensör entegrasyonu ve düşük seviye programlama."
+  }
+}
