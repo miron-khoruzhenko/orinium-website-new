@@ -1,0 +1,128 @@
+{
+  "hero": {
+    "subtitle": "Araştır. Tasarla. Yenile.",
+    "title": "ORINIUM — Gelecek Robotik ve Otonom Sistemler için Ar-Ge Çözümleri",
+    "cta1": "Projeleri Keşfet",
+    "cta2": "Ortak Ol",
+    "scroll": "Aşağı Kaydır"
+  },
+  "about": {
+    "title": "ORINIUM Hakkında",
+    "description1": "ORINIUM, robotik, yapay zeka ve otonom sistemleri geliştirmeye odaklanan öğrenci liderliğinde bir araştırma ve geliştirme girişimidir. 2022'de Yıldız Teknik Üniversitesi'nde kurulan ekibimiz, akademik mükemmelliği pratik yenilikle birleştiriyor.",
+    "description2": "Misyonumuz, yer araçlarından akıllı kontrol sistemlerine kadar otonom sistemlerde mümkün olanın sınırlarını zorlayan son teknoloji çözümler geliştirmektir.",
+    "milestones": {
+      "title": "Yolculuğumuz",
+      "2022": "Yıldız Teknik Üniversitesi'nde kuruldu",
+      "2023": "BR-01 ve ARES prototipleri geliştirildi",
+      "2024": "Endüstri ortaklıkları ve saha testleri",
+      "2025": "Yeni alanlarda araştırma genişletiliyor"
+    }
+  },
+  "rd": {
+    "title": "Ar-Ge Alanları",
+    "subtitle": "Odaklanmış araştırma ve geliştirme ile teknolojinin sınırlarını zorluyoruz",
+    "robotics": {
+      "title": "Robotik",
+      "description": "Zorlu ortamlar ve karmaşık görevler için otonom yer araçları, mobil robotlar ve mekanik sistemlerin tasarımı ve geliştirilmesi."
+    },
+    "ai": {
+      "title": "Yapay Zeka",
+      "description": "Otonom karar verme ve çevre algılama için makine öğrenimi, bilgisayarlı görü ve akıllı kontrol sistemleri."
+    },
+    "embedded": {
+      "title": "Gömülü Sistemler",
+      "description": "Robotik uygulamalar ve otonom platformlar için gerçek zamanlı kontrol sistemleri, sensör entegrasyonu ve düşük seviye programlama."
+    }
+  },
+  "projects": {
+    "title": "Projelerimiz",
+    "subtitle": "Titiz araştırma ve test ile geliştirilmiş yenilikçi çözümler",
+    "ares": {
+      "fullName": "Otonom Keşif ve Araştırma Sistemi",
+      "description": "Zorlu arazi navigasyonu, keşif görevleri ve zorlu ortamlarda otonom keşif için tasarlanmış paletli insansız kara aracı.",
+      "spec1": "Her arazi paletli hareket sistemi",
+      "spec2": "Otonom navigasyon ve engel önleme",
+      "spec3": "Gerçek zamanlı video akışı ve sensör verisi"
+    },
+    "br01": {
+      "fullName": "Dengeleme Robotu - Nesil 01",
+      "description": "Gelişmiş kontrol algoritmaları, gerçek zamanlı stabilizasyon ve dinamik hareket yeteneklerini gösteren kendi kendini dengeleyen iki tekerlekli robot.",
+      "spec1": "PID tabanlı kendi kendini dengeleme kontrolü",
+      "spec2": "Stabilite için IMU sensör füzyonu",
+      "spec3": "Uzaktan kumanda ve otonom modlar"
+    }
+  },
+  "partners": {
+    "title": "Ortaklarımız",
+    "subtitle": "Endüstri ve akademi tarafından destekleniyor"
+  },
+  "team": {
+    "title": "Ekibimiz",
+    "subtitle": "Yeniliği yönlendiren tutkulu araştırmacılar ve mühendisler",
+    "founders": {
+      "title": "Kurucular",
+      "founder1": {
+        "name": "Ahmet Yılmaz",
+        "role": "Kurucu Ortak & CEO"
+      },
+      "founder2": {
+        "name": "Elif Demir",
+        "role": "Kurucu Ortak & CTO"
+      },
+      "founder3": {
+        "name": "Mehmet Kaya",
+        "role": "Kurucu Ortak & Araştırma Lideri"
+      }
+    },
+    "leads": {
+      "title": "Ekip Liderleri",
+      "lead1": {
+        "name": "Zeynep Arslan",
+        "role": "Robotik Lideri"
+      },
+      "lead2": {
+        "name": "Can Öztürk",
+        "role": "Yapay Zeka Lideri"
+      },
+      "lead3": {
+        "name": "Ayşe Şahin",
+        "role": "Gömülü Sistemler Lideri"
+      },
+      "lead4": {
+        "name": "Burak Çelik",
+        "role": "Mekanik Tasarım Lideri"
+      },
+      "lead5": {
+        "name": "Deniz Aydın",
+        "role": "Elektronik Lideri"
+      },
+      "lead6": {
+        "name": "Emre Yıldız",
+        "role": "Yazılım Lideri"
+      }
+    }
+  },
+  "contact": {
+    "title": "İletişime Geçin",
+    "location": {
+      "title": "Konumumuz",
+      "address": "Yıldız Teknopark, Davutpaşa Kampüsü, Esenler, İstanbul, Türkiye"
+    },
+    "form": {
+      "name": "İsim",
+      "email": "E-posta",
+      "subject": "Konu",
+      "message": "Mesaj",
+      "submit": "Mesaj Gönder",
+      "success": "Teşekkürler! En kısa sürede size dönüş yapacağız.",
+      "subjects": {
+        "general": "Genel Soru",
+        "partnership": "Ortaklık",
+        "sponsorship": "Sponsorluk",
+        "join": "Ekibe Katıl",
+        "media": "Medya",
+        "other": "Diğer"
+      }
+    }
+  }
+}

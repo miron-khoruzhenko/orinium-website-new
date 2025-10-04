@@ -2,7 +2,10 @@ import type React from "react"
 import { Inter, Poppins } from "next/font/google"
 import { NextIntlClientProvider } from "next-intl"
 import { getMessages } from "next-intl/server"
-import "./globals.css"
+import "@/styles/globals.css"
+import { siteConfig } from "@/config"
+import Navbar from "@/components/layout/Navbar"
+import Footer from "@/components/layout/Footer"
 
 const inter = Inter({
   subsets: ["latin", "cyrillic"],
@@ -18,9 +21,8 @@ const poppins = Poppins({
 })
 
 export const metadata = {
-  title: "ORINIUM — R&D Solutions",
-  description: "Research. Design. Innovate. Student research startup in robotics, AI, and autonomous systems.",
-    generator: 'v0.app'
+  title: siteConfig.title,
+  description: siteConfig.description,
 }
 
 export default async function RootLayout({
@@ -28,14 +30,18 @@ export default async function RootLayout({
   params: { locale },
 }: {
   children: React.ReactNode
-  params: { locale: string }
+  params: { locale: Locale }
 }) {
   const messages = await getMessages()
 
   return (
     <html lang={locale} className={`${inter.variable} ${poppins.variable}`}>
       <body>
-        <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider messages={messages}>
+          <Navbar />
+            {children}
+          <Footer />
+        </NextIntlClientProvider>
       </body>
     </html>
   )

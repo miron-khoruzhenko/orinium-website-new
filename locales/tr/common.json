@@ -7,5 +7,24 @@
     "partners": "Ortaklar",
     "team": "Ekip",
     "contact": "İletişim"
+  },
+  "actions": {
+    "explore": "Keşfet",
+    "learnMore": "Daha fazla bilgi",
+    "contactUs": "Bize ulaşın"
+  },
+  "state": {
+    "loading": "Yükleniyor…",
+    "error": "Bir şeyler ters gitti",
+    "empty": "Şimdilik burada bir şey yok"
+  },
+  "form": {
+    "submit": "Gönder",
+    "sending": "Gönderiliyor…",
+    "success": "Teşekkürler! En kısa sürede size dönüş yapacağız."
+  },
+  "validation": {
+    "required": "Bu alan zorunludur",
+    "email": "Geçerli bir e-posta girin"
   }
 }
