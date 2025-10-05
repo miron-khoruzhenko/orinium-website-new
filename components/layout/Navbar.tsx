@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl"
 import Logo from "../ui/Logo"
 import LanguageDropdown from "./LanguageDropdown"
 import { navLinks } from "@/config/navigation"
+import Link from "next/link"
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -28,9 +29,9 @@ export default function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navigation.map((link) => (
-              <a key={link.href} href={link.href} className="text-sm font-medium hover:opacity-60 transition-opacity">
+              <Link key={link.href} href={link.href} className="text-sm font-medium hover:opacity-60 transition-opacity">
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
 

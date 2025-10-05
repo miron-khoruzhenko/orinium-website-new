@@ -1,5 +1,5 @@
 import ButtonLink from "@/components/ui/Button"
-import { useTranslations } from "next-intl"
+import { getAnchorLink } from "@/config"
 import { getTranslations } from "next-intl/server"
 
 export default async function Hero() {
@@ -16,10 +16,10 @@ export default async function Hero() {
         <h2 className="font-light text-2xl sm:text-3xl lg:text-4xl mb-12 leading-tight">{t("hero.subtitle")}</h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-16 max-w-md mx-auto">
-          <ButtonLink href="#projects" color="primary">
+          <ButtonLink href={getAnchorLink("projects")} color="primary">
             {t("hero.cta1")}
           </ButtonLink>
-          <ButtonLink href="#contact" color="secondary">
+          <ButtonLink href={getAnchorLink("contact")} color="secondary">
             {t("hero.cta2")}
           </ButtonLink>
         </div>

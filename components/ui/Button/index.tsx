@@ -29,7 +29,7 @@ interface ButtonProps {
 const ButtonLink = (props: ButtonProps & StandartProps) => {
 	return (
 		<Link 
-			href={props.href || "#"} 
+			href={props.href || "#"}
 			className={cn(button({ size: props.size, color: props.color }), props.className)} 
 			style={props.style} 
 			id={props.id}
