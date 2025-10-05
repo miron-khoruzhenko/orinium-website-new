@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 type Person = { id?: string; name: string; role: string };
 
 export default function TeamSectionView({
@@ -28,8 +30,12 @@ export default function TeamSectionView({
             {founders.map((f) => (
               <div key={f.id ?? f.name} className="border border-black">
                 <div className="aspect-square bg-gray-100">
-                  <img
-                    src={`/professional-portrait.png?height=400&width=400&query=professional portrait ${f.name}`}
+                  <Image
+                    loading="lazy"
+                    width={400}
+                    height={400}
+                    // src={`/professional-portrait.png?height=400&width=400&query=professional portrait ${f.name}`}
+                    src={`/home/profile_placeholder_man.webp`}
                     alt={f.name}
                     className="w-full h-full object-cover grayscale"
                   />
@@ -50,8 +56,12 @@ export default function TeamSectionView({
             {leads.map((l) => (
               <div key={l.id ?? l.name} className="border border-black">
                 <div className="aspect-square bg-gray-100">
-                  <img
-                    src={`/professional-portrait.png?height=300&width=300&query=professional portrait ${l.name}`}
+                  <Image
+                    loading="lazy"
+                    width={300}
+                    height={300}
+                    // src={`/professional-portrait.png?height=300&width=300&query=professional portrait ${l.name}`}
+                    src={`/home/profile_placeholder_man.webp`}
                     alt={l.name}
                     className="w-full h-full object-cover grayscale"
                   />

@@ -3,6 +3,7 @@
 
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
+import Image from "next/image";
 import { useRef } from "react"
 
 interface ProjectGridClientProps {
@@ -42,7 +43,10 @@ export default function ProjectsGridClient({title, subtitle, projects} : Project
 								className="border border-black group hover:scale-[1.02] transition-transform"
 							>
 								<div className="aspect-video bg-gray-100 overflow-hidden">
-									<img
+									<Image
+										width={600}
+										height={400}
+										loading="lazy"
 										src={project.image || "/placeholder.svg"}
 										alt={project.name}
 										className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all"

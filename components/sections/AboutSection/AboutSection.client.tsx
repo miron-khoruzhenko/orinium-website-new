@@ -44,7 +44,14 @@ export default function AboutSectionClient({
               <p className="text-lg leading-relaxed">{description2}</p>
             </div>
             <div className="bg-gray-100 aspect-video flex items-center justify-center">
-              <Image width={800} height={600} src="/robotics-laboratory-with-autonomous-systems.jpg" alt="ORINIUM Lab" className="w-full h-full object-cover" />
+              <Image
+                loading="lazy"
+                width={800}
+                height={600}
+                src="/robotics-laboratory-with-autonomous-systems.jpg"
+                alt="ORINIUM Lab"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
 
