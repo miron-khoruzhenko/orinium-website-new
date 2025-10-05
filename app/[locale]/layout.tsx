@@ -22,17 +22,21 @@ export default async function LocaleLayout({
 
 export async function generateMetadata({ params }: { params: { locale: Locale } }) {
   const { locale } = await params;
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+
   return {
     // Здесь можно настроить title и description для каждой локали
     title: siteConfig.title,
     description: siteConfig.description,
     alternates: {
-      canonical: `/${locale}`,
+      canonical: `${siteUrl}/${locale}`,
       languages: {
-        'en': '/en',
-        'ru': '/ru',
-        'tr': '/tr',
+        'en': `${siteUrl}/en`,
+        'ru': `${siteUrl}/ru`,
+        'tr': `${siteUrl}/tr`,
+        'x-default': `${siteUrl}/tr`,
       },
+
     },
   }
 }

@@ -3,6 +3,7 @@
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 import Image from "next/image"
+import ImageWithSkeleton from "@/components/ui/ImageWithSkeleton";
 
 // Определяем типы для пропсов, чтобы было чисто
 type Milestone = {
@@ -44,7 +45,15 @@ export default function AboutSectionClient({
               <p className="text-lg leading-relaxed">{description2}</p>
             </div>
             <div className="bg-gray-100 aspect-video flex items-center justify-center">
-              <Image
+              {/* <Image
+                loading="lazy"
+                width={800}
+                height={600}
+                src="/robotics-laboratory-with-autonomous-systems.jpg"
+                alt="ORINIUM Lab"
+                className="w-full h-full object-cover"
+              /> */}
+              <ImageWithSkeleton
                 loading="lazy"
                 width={800}
                 height={600}
