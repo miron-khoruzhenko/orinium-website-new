@@ -1,10 +1,9 @@
-"use client"
-
 import ButtonLink from "@/components/ui/Button"
 import { useTranslations } from "next-intl"
+import { getTranslations } from "next-intl/server"
 
-export default function Hero() {
-  const t = useTranslations("home")
+export default async function Hero() {
+  const t = await getTranslations("home")
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center bg-white pt-16 relative">

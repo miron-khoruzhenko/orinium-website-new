@@ -1,9 +1,7 @@
-"use client"
+import { getTranslations } from "next-intl/server"
 
-import { useTranslations } from "next-intl"
-
-export default function PartnersGrid() {
-  const t = useTranslations("home.partners")
+export default async function PartnersGrid() {
+  const t = await getTranslations("home.partners")
 
   const partners = ["Yıldız Technical University", "Teknopark Istanbul", "TUBITAK", "IEEE", "ROS Industrial", "NVIDIA"]
 

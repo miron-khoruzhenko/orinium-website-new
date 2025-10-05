@@ -1,16 +1,12 @@
-"use client"
+import { getTranslations } from "next-intl/server"
+import AboutSectionClient from "./AboutSection.client" // Импортируем наш новый клиентский компонент
 
-import { useTranslations } from "next-intl"
-import { motion } from "framer-motion"
-import { useInView } from "framer-motion"
-import { useRef } from "react"
-import Image from "next/image"
+// Этот компонент теперь серверный по умолчанию, убираем 'use client'
+export default async function AboutSection() {
+  // 1. Получаем переводы на сервере
+  const t = await getTranslations("home.about")
 
-export default function AboutSection() {
-  const t = useTranslations("home.about")
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
-
+  // 2. Готовим данные для передачи в дочерний компонент
   const milestones = [
     { year: "2023", text: t("milestones.I") },
     { year: "2024", text: t("milestones.II") },
@@ -18,49 +14,14 @@ export default function AboutSection() {
     { year: "2026", text: t("milestones.IV") },
   ]
 
+  // 3. Рендерим клиентский компонент и передаем ему все данные как props
   return (
-    <section id="about" className="py-24 bg-white border-t border-black" ref={ref}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="font-display font-bold text-4xl lg:text-5xl mb-12">{t("title")}</h2>
-
-          <div className="grid md:grid-cols-2 gap-12 mb-16">
-            <div className="space-y-6">
-              <p className="text-lg leading-relaxed">{t("description1")}</p>
-              <p className="text-lg leading-relaxed">{t("description2")}</p>
-            </div>
-
-            <div className="bg-gray-100 aspect-video flex items-center justify-center">
-              {/* <img src="/robotics-laboratory-with-autonomous-systems.jpg" alt="ORINIUM Lab" className="w-full h-full object-cover" /> */}
-              <Image width={800} height={600} src="/robotics-laboratory-with-autonomous-systems.jpg" alt="ORINIUM Lab" className="w-full h-full object-cover" />
-
-            </div>
-          </div>
-
-          {/* Milestones */}
-          <div>
-            <h3 className="font-display font-bold text-2xl mb-8">{t("milestones.title")}</h3>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {milestones.map((milestone, index) => (
-                <motion.div
-                  key={milestone.year}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="border border-black p-6"
-                >
-                  <div className="font-display font-bold text-3xl mb-3">{milestone.year}</div>
-                  <p className="text-sm leading-relaxed">{milestone.text}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
-      </div>
-    </section>
+    <AboutSectionClient
+      title={t("title")}
+      description1={t("description1")}
+      description2={t("description2")}
+      milestonesTitle={t("milestones.title")}
+      milestones={milestones}
+    />
   )
 }

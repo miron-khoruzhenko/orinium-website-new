@@ -1,46 +1,21 @@
 {
-    "title": "Ekibimiz",
-    "subtitle": "Yeniliği yönlendiren tutkulu araştırmacılar ve mühendisler",
-    "founders": {
-      "title": "Kurucular",
-      "founder1": {
-        "name": "Ahmet Yılmaz",
-        "role": "Kurucu Ortak & CEO"
-      },
-      "founder2": {
-        "name": "Elif Demir",
-        "role": "Kurucu Ortak & CTO"
-      },
-      "founder3": {
-        "name": "Mehmet Kaya",
-        "role": "Kurucu Ortak & Araştırma Lideri"
-      }
-    },
-    "leads": {
-      "title": "Ekip Liderleri",
-      "lead1": {
-        "name": "Zeynep Arslan",
-        "role": "Robotik Lideri"
-      },
-      "lead2": {
-        "name": "Can Öztürk",
-        "role": "Yapay Zeka Lideri"
-      },
-      "lead3": {
-        "name": "Ayşe Şahin",
-        "role": "Gömülü Sistemler Lideri"
-      },
-      "lead4": {
-        "name": "Burak Çelik",
-        "role": "Mekanik Tasarım Lideri"
-      },
-      "lead5": {
-        "name": "Deniz Aydın",
-        "role": "Elektronik Lideri"
-      },
-      "lead6": {
-        "name": "Emre Yıldız",
-        "role": "Yazılım Lideri"
-      }
-    }
-  }
+  "title": "Ekibimiz",
+  "subtitle": "Yeniliği yönlendiren tutkulu araştırmacılar ve mühendisler",
+  "sections": {
+    "founders": "Kurucular",
+    "leads": "Ekip Liderleri"
+  },
+  "founders": [
+    { "id": "ahmet-yilmaz", "name": "Ahmet Yılmaz", "role": "Kurucu Ortak & CEO" },
+    { "id": "elif-demir", "name": "Elif Demir", "role": "Kurucu Ortak & CTO" },
+    { "id": "mehmet-kaya", "name": "Mehmet Kaya", "role": "Kurucu Ortak & Araştırma Lideri" }
+  ],
+  "leads": [
+    { "id": "zeynep-arslan", "name": "Zeynep Arslan", "role": "Robotik Lideri" },
+    { "id": "can-ozturk", "name": "Can Öztürk", "role": "Yapay Zeka Lideri" },
+    { "id": "ayse-sahin", "name": "Ayşe Şahin", "role": "Gömülü Sistemler Lideri" },
+    { "id": "burak-celik", "name": "Burak Çelik", "role": "Mekanik Tasarım Lideri" },
+    { "id": "deniz-aydin", "name": "Deniz Aydın", "role": "Elektronik Lideri" },
+    { "id": "emre-yildiz", "name": "Emre Yıldız", "role": "Yazılım Lideri" }
+  ]
+}
