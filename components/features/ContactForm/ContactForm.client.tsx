@@ -120,13 +120,14 @@ export default function ContactFormClient({
 								className="w-full px-4 py-3 bg-white text-black border border-white focus:outline-none focus:ring-2 focus:ring-white resize-none"
 							/>
 						</div>
-						<Turnstile
+						{/* <Turnstile
 							onSuccess={(token) => setTurnstileToken(token)}
 							siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
-						/>
+						/> */}
 						<button
 							type="submit"
 							disabled={status === 'loading'}
+							// disabled={status === 'loading' || !turnstileToken}
 							className="w-full px-8 py-4 bg-white text-black font-display font-bold hover:bg-gray-200 transition-colors disabled:bg-gray-500 disabled:cursor-not-allowed"
 						>
 							{status === 'loading' ? 'Sending...' : formStrings.submit}
