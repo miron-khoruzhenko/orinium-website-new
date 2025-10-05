@@ -27,17 +27,16 @@ export default function ContactFormClient({
 
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
-		// if (!turnstileToken) {
-		// 	setErrorMessage("Please verify you are not a robot.");
-		// 	setStatus('error');
-		// 	return;
-		// }
+		if (!turnstileToken) {
+			setErrorMessage("Please verify you are not a robot.");
+			setStatus('error');
+			return;
+		}
 		setStatus('loading');
 
 		// Вызываем нашу вынесенную функцию для отправки данных
 		// const result = await sendContactForm(formData);
-		// const result = await sendContactForm({ ...formData, token: turnstileToken });
-		const result = await sendContactForm({ ...formData});
+		const result = await sendContactForm({ ...formData, token: turnstileToken });
 
 		if (result.success) {
 			setStatus('success');
@@ -121,14 +120,17 @@ export default function ContactFormClient({
 								className="w-full px-4 py-3 bg-white text-black border border-white focus:outline-none focus:ring-2 focus:ring-white resize-none"
 							/>
 						</div>
-						{/* <Turnstile
+						<Turnstile
 							onSuccess={(token) => setTurnstileToken(token)}
-							siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
-						/> */}
+							siteKey={process.env.NODE_ENV === 'development' ? 
+								process.env.NEXT_PUBLIC_TURNSTILE_DUMMY_SITE_KEY! : 
+								process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!
+							}
+						/>
 						<button
 							type="submit"
-							disabled={status === 'loading'}
-							// disabled={status === 'loading' || !turnstileToken}
+							// disabled={status === 'loading'}
+							disabled={status === 'loading' || !turnstileToken}
 							className="w-full px-8 py-4 bg-white text-black font-display font-bold hover:bg-gray-200 transition-colors disabled:bg-gray-500 disabled:cursor-not-allowed"
 						>
 							{status === 'loading' ? 'Sending...' : formStrings.submit}
