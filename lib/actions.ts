@@ -4,6 +4,7 @@ type ContactFormData = {
   email: string;
   subject: string;
   message: string;
+  token: string;
 };
 
 /**
