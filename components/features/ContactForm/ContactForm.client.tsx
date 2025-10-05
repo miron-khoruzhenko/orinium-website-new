@@ -27,16 +27,17 @@ export default function ContactFormClient({
 
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
-		if (!turnstileToken) {
-			setErrorMessage("Please verify you are not a robot.");
-			setStatus('error');
-			return;
-		}
+		// if (!turnstileToken) {
+		// 	setErrorMessage("Please verify you are not a robot.");
+		// 	setStatus('error');
+		// 	return;
+		// }
 		setStatus('loading');
 
 		// Вызываем нашу вынесенную функцию для отправки данных
 		// const result = await sendContactForm(formData);
-		const result = await sendContactForm({ ...formData, token: turnstileToken });
+		// const result = await sendContactForm({ ...formData, token: turnstileToken });
+		const result = await sendContactForm({ ...formData});
 
 		if (result.success) {
 			setStatus('success');
