@@ -9,7 +9,7 @@ export async function POST(request: Request) {
 	try {
 		const body = await request.json();
 		// const { name, email, subject, message } = body;
-		const { name, email, subject, message, token } = body; // ✅ Получаем токен
+		const { name, email, subject, message, token } = body;
 		const secretKey = process.env.NODE_ENV === 'development' ?
 			process.env.TURNSTILE_DUMMY_SECRET_KEY! :
 			process.env.TURNSTILE_SECRET_KEY!;
@@ -17,14 +17,9 @@ export async function POST(request: Request) {
 		// 👇 Проверяем токен Turnstile
 		const turnstileResponse = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
 			method: 'POST',
-			// headers: { 'Content-Type': 'application/json' },
 			headers: {
 				'content-type': 'application/x-www-form-urlencoded'
 			},
-			// body: JSON.stringify({
-			// 	secret: process.env.TURNSTILE_SECRET_KEY,
-			// 	response: token,
-			// }),
 			body: `secret=${encodeURIComponent(secretKey)}&response=${encodeURIComponent(token)}`,
 		});
 		const turnstileData = await turnstileResponse.json();
@@ -41,8 +36,8 @@ export async function POST(request: Request) {
 
 		// ✅ Отправляем email с помощью Resend
 		const { data, error } = await resend.emails.send({
-			from: 'Contact Form <form@orinium.co>', // ❗️ Должен быть email на вашем верифицированном домене
-			to: ['orinium.tech@gmail.com'], // Ваш личный email, куда придут письма
+			from: 'Contact Form <form@orinium.co>',
+			to: ['orinium.tech@gmail.com'],
 			subject: `New Form Submission from ${name}: ${subject}`,
 			html: `<p>You have a new message from your contact form:</p>
 						<p><strong>Name:</strong> ${name}</p>

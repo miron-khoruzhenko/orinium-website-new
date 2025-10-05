@@ -4,6 +4,8 @@ import { sendContactForm } from "@/lib/actions";
 import type React from "react"
 import { useState } from "react"
 import { Turnstile } from '@marsidev/react-turnstile';
+import Map from "./MapBlock";
+import MapBlock from "./MapBlock";
 
 
 
@@ -55,13 +57,7 @@ export default function ContactFormClient({
 				<h2 className="font-display font-bold text-4xl lg:text-5xl mb-16">{title}</h2>
 				<div className="grid lg:grid-cols-2 gap-12">
 					{/* Блок с картой */}
-					<div className="border border-white p-8">
-						<h3 className="font-display font-bold text-2xl mb-4">{locationStrings.title}</h3>
-						<p className="mb-6 leading-relaxed">{locationStrings.address}</p>
-						<div className="aspect-video bg-gray-800 flex items-center justify-center">
-							<span className="text-gray-400">[Карта Yıldız Teknopark]</span>
-						</div>
-					</div>
+					<MapBlock title={locationStrings.title} address={locationStrings.address} />
 
 					{/* Форма */}
 					<form onSubmit={handleSubmit} className="space-y-6">
