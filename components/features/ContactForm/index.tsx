@@ -1,5 +1,18 @@
 import { getTranslations } from "next-intl/server"
-import ContactFormClient from "./ContactForm.client"
+// import ContactFormClient from "./ContactForm.client"
+import dynamic from "next/dynamic";
+import ContactFormSkeleton from "./ContactForm.skeleton";
+
+const ContactFormClient = dynamic(
+  () => import('./ContactForm.client'),
+  {
+    // Показываем красивый skeleton, пока грузится JS клиентского компонента
+    loading: () => <ContactFormSkeleton />,
+    
+    // Важно: мы все еще хотим, чтобы форма была в HTML от сервера
+    ssr: true 
+  }
+);
 
 export default async function ContactForm() {
   const t = await getTranslations("home.contact")

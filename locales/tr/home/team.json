@@ -6,16 +6,14 @@
     "leads": "Ekip Liderleri"
   },
   "founders": [
-    { "id": "ahmet-yilmaz", "name": "Ahmet Yılmaz", "role": "Kurucu Ortak & CEO" },
-    { "id": "elif-demir", "name": "Elif Demir", "role": "Kurucu Ortak & CTO" },
-    { "id": "mehmet-kaya", "name": "Mehmet Kaya", "role": "Kurucu Ortak & Araştırma Lideri" }
+    { "id": "eren-keles", "name": "Eren Keleş", "role": "Kurucu Ortak & Mekanik Tasarım Lideri" },
+    { "id": "miron-khoruzhenko", "name": "Miron Khoruzhenko", "role": "Kurucu Ortak & Proje Yöneticisi" },
+    { "id": "emirhan-unlu", "name": "Emirhan Ünlü", "role": "Kurucu Ortak & Yazılım Lideri" }
   ],
   "leads": [
-    { "id": "zeynep-arslan", "name": "Zeynep Arslan", "role": "Robotik Lideri" },
-    { "id": "can-ozturk", "name": "Can Öztürk", "role": "Yapay Zeka Lideri" },
-    { "id": "ayse-sahin", "name": "Ayşe Şahin", "role": "Gömülü Sistemler Lideri" },
-    { "id": "burak-celik", "name": "Burak Çelik", "role": "Mekanik Tasarım Lideri" },
-    { "id": "deniz-aydin", "name": "Deniz Aydın", "role": "Elektronik Lideri" },
-    { "id": "emre-yildiz", "name": "Emre Yıldız", "role": "Yazılım Lideri" }
+    { "id": "eren-keles", "name": "Eren Keleş", "role": "Mekanik Tasarım Lideri" },
+    { "id": "ahmet-yavuz-hicdurmaz", "name": "Ahmet Yavuz Hiçdurmaz", "role": "Elektronik Lideri" },
+    { "id": "emirhan-unlu", "name": "Emirhan Ünlü", "role": "Yazılım Lideri" },
+    { "id": "seda-nur-barkuz", "name": "Seda Nur Barkuz", "role": "Organizasyon Lideri" }
   ]
 }

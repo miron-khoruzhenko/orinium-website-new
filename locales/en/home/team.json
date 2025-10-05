@@ -6,16 +6,14 @@
     "leads": "Team Leads"
   },
   "founders": [
-    { "id": "ahmet-yilmaz", "name": "Ahmet Yılmaz", "role": "Co-Founder & CEO" },
-    { "id": "elif-demir", "name": "Elif Demir", "role": "Co-Founder & CTO" },
-    { "id": "mehmet-kaya", "name": "Mehmet Kaya", "role": "Co-Founder & Research Lead" }
+    { "id": "eren-keles", "name": "Eren Keleş", "role": "Co-Founder" },
+    { "id": "miron-khoruzhenko", "name": "Miron Khoruzhenko", "role": "Co-Founder" },
+    { "id": "emirhan-unlu", "name": "Emirhan Ünlü", "role": "Co-Founder" }
   ],
   "leads": [
-    { "id": "zeynep-arslan", "name": "Zeynep Arslan", "role": "Robotics Lead" },
-    { "id": "can-ozturk", "name": "Can Öztürk", "role": "AI & ML Lead" },
-    { "id": "ayse-sahin", "name": "Ayşe Şahin", "role": "Embedded Systems Lead" },
-    { "id": "burak-celik", "name": "Burak Çelik", "role": "Mechanical Design Lead" },
-    { "id": "deniz-aydin", "name": "Deniz Aydın", "role": "Electronics Lead" },
-    { "id": "emre-yildiz", "name": "Emre Yıldız", "role": "Software Lead" }
+    { "id": "eren-keles", "name": "Eren Keleş", "role": "Mechanical Design Lead" },
+    { "id": "ahmet-yavuz-hicdurmaz", "name": "Ahmet Yavuz Hiçdurmaz", "role": "Electronics Lead" },
+    { "id": "emirhan-unlu", "name": "Emirhan Ünlü", "role": "Software Lead" },
+    { "id": "seda-nur-barkuz", "name": "Seda Nur Barkuz", "role": "Organization Lead" }
   ]
 }

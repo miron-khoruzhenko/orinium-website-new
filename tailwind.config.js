@@ -7,6 +7,7 @@ module.exports = {
   theme: {
     ...defaultConfig.theme,
     extend: {
+
       colors: {
         black: "#000000",
         white: "#ffffff",

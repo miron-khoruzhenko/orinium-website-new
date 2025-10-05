@@ -1,3 +1,4 @@
+import ImageWithSkeleton from "@/components/ui/ImageWithSkeleton";
 import Image from "next/image";
 
 type Person = { id?: string; name: string; role: string };
@@ -30,7 +31,7 @@ export default function TeamSectionView({
             {founders.map((f) => (
               <div key={f.id ?? f.name} className="border border-black">
                 <div className="aspect-square bg-gray-100">
-                  <Image
+                  <ImageWithSkeleton
                     loading="lazy"
                     width={400}
                     height={400}
@@ -52,11 +53,11 @@ export default function TeamSectionView({
         {/* Team Leads */}
         <div>
           <h3 className="font-display font-bold text-2xl mb-8">{leadsTitle}</h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {leads.map((l) => (
               <div key={l.id ?? l.name} className="border border-black">
                 <div className="aspect-square bg-gray-100">
-                  <Image
+                  <ImageWithSkeleton
                     loading="lazy"
                     width={300}
                     height={300}
