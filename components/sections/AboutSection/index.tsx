@@ -1,27 +1,28 @@
 import { getTranslations } from "next-intl/server"
 import AboutSectionClient from "./AboutSection.client" // Импортируем наш новый клиентский компонент
+import { AboutData } from "@/types/sanity"
 
 // Этот компонент теперь серверный по умолчанию, убираем 'use client'
-export default async function AboutSection() {
-  // 1. Получаем переводы на сервере
-  const t = await getTranslations("home.about")
+export default async function AboutSection(props: {
+  data: AboutData | null
+}) {
+  const t = await getTranslations("home")
 
-  // 2. Готовим данные для передачи в дочерний компонент
-  const milestones = [
-    { year: "2023", text: t("milestones.I") },
-    { year: "2024", text: t("milestones.II") },
-    { year: "2025", text: t("milestones.III") },
-    { year: "2026", text: t("milestones.IV") },
+  const backupMilestones = [
+    { item_title: "2022", item_content: t("about.milestones.I") },
+    { item_title: "2023", item_content: t("about.milestones.II") },
+    { item_title: "2024", item_content: t("about.milestones.III") },
+    { item_title: "2025", item_content: t("about.milestones.IV") },
   ]
-
-  // 3. Рендерим клиентский компонент и передаем ему все данные как props
+  
   return (
     <AboutSectionClient
-      title={t("title")}
-      description1={t("description1")}
-      description2={t("description2")}
-      milestonesTitle={t("milestones.title")}
-      milestones={milestones}
+      title={props.data?.title || t("about.title")}
+      description={props.data?.content || [t("about.description1"), t("about.description2")]}
+      milestonesTitle={props.data?.subsection_title || t("about.milestones.title")}
+      milestones={props.data?.subsection_items || backupMilestones}
+      imgeUrl={props.data?.imageUrl}
+      imageAlt={props.data?.imageAlt}
     />
   )
 }

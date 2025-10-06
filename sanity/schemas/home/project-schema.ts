@@ -1,4 +1,5 @@
 import languageField from "@/sanity/config/sanity.language";
+import structureGroups from "@/sanity/config/sanity.structure-groups";
 import { slugify } from "@/sanity/utils/base-lang-slug";
 import { imageRatioValidation } from "@/sanity/utils/image-validator";
 import { Rule } from "sanity";
@@ -9,6 +10,8 @@ const project_schema = {
 	title: 'Projects',
 	type: 'document',
 	internationalization: true,
+	structureGroup: structureGroups.list,
+	
 	// actions: {
 	// 	delete: true,
 	// },

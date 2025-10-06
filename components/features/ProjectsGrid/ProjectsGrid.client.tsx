@@ -3,6 +3,7 @@
 
 import PortableTextRenderer from "@/components/layout/PortableTextRenderer";
 import { SanityProject } from "@/sanity/utils/get-projects";
+import { ProjectCard } from "@/types/sanity";
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import Image from "next/image";
@@ -18,10 +19,10 @@ interface ProjectGridClientProps {
 	// 	specs: string[];
 	// 	image: string;
 	// }[];
-	projects: SanityProject[];
+	projects: ProjectCard[];
 }
 
-export default function ProjectsGridClient({title, subtitle, projects} : ProjectGridClientProps) {
+export default function ProjectsGridClient({ title, subtitle, projects }: ProjectGridClientProps) {
 	const ref = useRef(null)
 	const isInView = useInView(ref, { once: true, margin: "-100px" })
 
@@ -56,18 +57,23 @@ export default function ProjectsGridClient({title, subtitle, projects} : Project
 									/>
 								</div>
 								<div className="p-8">
-									<div className="font-display font-bold text-3xl mb-2">{project.name}</div>
+									<div className="font-display font-bold text-3xl mb-2">{project.title || project.name}</div>
 									<div className="text-sm text-gray-600 mb-4">{project.subtitle}</div>
-									{project.content && <PortableTextRenderer value={project.content} />}
-									{/* <p className="leading-relaxed mb-6">{project.}</p>
-									<ul className="space-y-2">
-										{project.specs.map((spec, i) => (
-											<li key={i} className="flex items-start gap-2 text-sm">
-												<span className="mt-1.5 w-1.5 h-1.5 bg-black flex-shrink-0" />
-												{spec}
-											</li>
-										))}
-									</ul> */}
+									{
+										project.content &&
+										typeof project.content !== "string" ?
+											<PortableTextRenderer value={project.content} /> :
+											<>
+												<p className="leading-relaxed mb-6">{project.content}</p>
+												<ul className="space-y-2">
+													{project.specs && project.specs.map((spec, i) => (
+														<li key={i} className="flex items-start gap-2 text-sm">
+															<span className="mt-1.5 w-1.5 h-1.5 bg-black flex-shrink-0" />
+															{spec}
+														</li>
+													))}
+												</ul>
+											</>}
 								</div>
 							</motion.div>
 						))}

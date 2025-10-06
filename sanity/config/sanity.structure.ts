@@ -1,126 +1,69 @@
-// import { StructureBuilder } from 'sanity/structure'
-// import { supportedLanguages } from './sanity.language';
-// import schemaTypes from './sanity.types';
-
-// export const structure = (S: StructureBuilder) =>
-//   S.list()
-//     .title('Content')
-//     .items([
-//       // Для каждого переводимого типа создаем свою группу
-//       ...schemaTypes.map(type =>
-//         S.listItem()
-//           .title(getTitleForType(type)) // Получаем красивое название для типа
-//           .child(
-//             S.list()
-//               .title(`${getTitleForType(type)} by Language`)
-//               .items(
-//                 // Создаем подпункт для каждого языка
-//                 supportedLanguages.map(lang =>
-//                   S.listItem()
-//                     .title(`${getTitleForType(type)} (${lang.title})`)
-//                     .child(
-//                       // Этот список будет содержать только документы на выбранном языке
-//                       S.documentTypeList(type)
-//                         .title(`${getTitleForType(type)} (${lang.title})`)
-//                         .filter('_type == $type && language == $lang')
-//                         .params({ type, lang: lang.id })
-//                     )
-//                 )
-//               )
-//           )
-//       ),
-
-//       // Разделитель
-//       S.divider(),
-
-//       // Оставляем стандартный рендеринг для всех остальных типов документов
-//       ...S.documentTypeListItems().filter(
-//         listItem => !schemaTypes.includes(listItem.getId()!)
-//       ),
-//     ]);
-
-// // Вспомогательная функция для получения читаемых названий
-// function getTitleForType(type: string) {
-//   switch (type) {
-//     case 'project':
-//       return 'Project';
-//     case 'teamMember':
-//       return 'Участники команды';
-//     default:
-//       return type.charAt(0).toUpperCase() + type.slice(1);
-//   }
-// }
 import { StructureBuilder } from 'sanity/structure'
-import { supportedLanguages } from './sanity.language' // Убедитесь, что путь к файлу верный
+import { supportedLanguages } from './sanity.language'
+import schemas from '../schemas' // ✅ Импортируем ВСЕ схемы
 
-// Типы-синглтоны (секции главной страницы)
-const singletonTypes = ['heroSection']; // Добавляйте сюда name других секций
-// Типы-списки
-const listTypes = ['project'];
+// Определяем кастомный тип для наших схем с новым свойством
+type SchemaTypeWithGroup = {
+  name: string;
+  title?: string;
+  structureGroup?: 'singleton' | 'list';
+}
 
-export const structure = (S: StructureBuilder) =>
-  S.list()
-    .title('Content')
+export const structure = (S: StructureBuilder) => {
+  // 1. Фильтруем схемы по их группам
+  const singletonItems = (schemas as SchemaTypeWithGroup[])
+    .filter(schema => schema.structureGroup === 'singleton')
+    .map(schema => 
+      S.listItem()
+        .title(schema.title || schema.name)
+        .id(schema.name)
+        .child(
+          S.document()
+            .schemaType(schema.name)
+            .documentId(schema.name)
+            .title(schema.title || schema.name)
+        )
+    );
+
+  const listItems = (schemas as SchemaTypeWithGroup[])
+    .filter(schema => schema.structureGroup === 'list')
+    .map(schema => 
+      S.listItem()
+        .title(schema.title || schema.name)
+        .child(
+          S.list()
+            .title(`${schema.title || schema.name} by Language`)
+            .items(
+              supportedLanguages.map(lang =>
+                S.listItem()
+                  .title(`${schema.title || schema.name} (${lang.title})`)
+                  .child(
+                    S.documentTypeList(schema.name)
+                      .title(`${schema.title || schema.name} (${lang.title})`)
+                      .filter('_type == $type && language == $lang')
+                      .params({ type: schema.name, lang: lang.id })
+                      .initialValueTemplates([
+                        S.initialValueTemplateItem(`${schema.name}-${lang.id}`)
+                      ])
+                  )
+              )
+            )
+        )
+    );
+
+  // 2. Собираем финальную структуру
+  return S.list()
+    .title('Контент')
     .items([
-      // --- 1. Пункт для управления главной страницей (Синглтоны) ---
       S.listItem()
         .title('Homepage')
         .id('homepage-sections')
         .child(
           S.list()
             .title('Sections of the Homepage')
-            .items(
-              singletonTypes.map(type =>
-                S.listItem()
-                  .title(getTitleForType(type))
-                  .id(type)
-                  .child(
-                    // При клике сразу открывается редактор этого синглтона
-                    S.document()
-                      .title(getTitleForType(type))
-                      .schemaType(type)
-                      .documentId(type) // ID документа совпадает с его типом
-                  )
-              )
-            )
+            .items(singletonItems)
         ),
-      
       S.divider(),
-
-      // --- 2. Пункты для списков документов (Проекты, Команда) ---
-      ...listTypes.map(type => 
-        S.listItem()
-          .title(getTitleForType(type))
-          .child(
-            S.list()
-              .title(`${getTitleForType(type)} по языкам`)
-              .items(
-                supportedLanguages.map(lang =>
-                  S.listItem()
-                    .title(`${getTitleForType(type)} (${lang.title})`)
-                    .child(
-                      S.documentTypeList(type)
-                        .title(`${getTitleForType(type)} (${lang.title})`)
-                        .filter('_type == $type && language == $lang')
-                        .params({ type, lang: lang.id })
-                        .initialValueTemplates([
-                          // "Умная" кнопка "+", которая знает, какой язык создавать
-                          S.initialValueTemplateItem(`${type}-${lang.id}`)
-                        ])
-                    )
-                )
-              )
-          )
-      ),
+      ...listItems,
     ]);
-
-// Вспомогательная функция для получения красивых названий
-function getTitleForType(type: string): string {
-  switch (type) {
-    case 'project': return 'Projects';
-    case 'heroSection': return 'Hero section';
-    // Добавьте сюда другие названия по мере необходимости
-    // case 'aboutSection': return 'Секция "О нас"';
-    default: return type.charAt(0).toUpperCase() + type.slice(1);
-  }
 }

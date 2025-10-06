@@ -10,6 +10,7 @@ const components: PortableTextComponents = {
   listItem: {
     bullet: ({ children }) => <li>{children}</li>,
   },
+  hardBreak: () => <br />,
   // Вы можете кастомизировать любой элемент, например, ссылки или заголовки
   // block: {
   //   h1: ({ children }) => <h1 className="text-4xl font-bold">{children}</h1>,

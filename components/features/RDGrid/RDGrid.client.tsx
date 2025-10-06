@@ -1,18 +1,19 @@
 "use client"
 
+import PortableTextRenderer from "@/components/layout/PortableTextRenderer";
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 
 // Определяем типы для пропсов
 type Area = {
-  title: string;
-  description: string;
-  icon: string; // Пока оставляем как строку
+  item_title: string;
+  item_content: string;
+  // icon: string; // Пока оставляем как строку
 };
 
 type RDGridClientProps = {
   title: string;
-  subtitle: string;
+  subtitle: any[] | string; 
   areas: Area[];
 };
 
@@ -29,12 +30,14 @@ export default function RDGridClient({ title, subtitle, areas }: RDGridClientPro
           transition={{ duration: 0.6 }}
         >
           <h2 className="font-display font-bold text-4xl lg:text-5xl mb-4">{title}</h2>
-          <p className="text-xl text-gray-400 mb-16 max-w-3xl">{subtitle}</p>
+          <div className="text-xl text-gray-400 mb-16 max-w-3xl">
+            {typeof subtitle === "string" ? subtitle : <PortableTextRenderer value={subtitle} />}
+          </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {areas.map((area, index) => (
               <motion.div
-                key={area.title}
+                key={area.item_title}
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 0.6, delay: index * 0.15 }}
@@ -42,10 +45,11 @@ export default function RDGridClient({ title, subtitle, areas }: RDGridClientPro
               >
                 <div className="w-16 h-16 border border-white group-hover:border-black mb-6 flex items-center justify-center">
                   {/* Иконку можно будет рендерить на основе area.icon */}
+                  
                   <div className="w-8 h-8 bg-white group-hover:bg-black" />
                 </div>
-                <h3 className="font-display font-bold text-2xl mb-4">{area.title}</h3>
-                <p className="leading-relaxed">{area.description}</p>
+                <h3 className="font-display font-bold text-2xl mb-4">{area.item_title}</h3>
+                <p className="leading-relaxed">{area.item_content}</p>
               </motion.div>
             ))}
           </div>
