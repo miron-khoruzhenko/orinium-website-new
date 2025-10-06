@@ -20,9 +20,7 @@ const poppins = Poppins({
 
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode
-}) {
+}: LocaleLayoutProps) {
   return (
     <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
       <body>{children}</body>

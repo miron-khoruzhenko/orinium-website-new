@@ -3,21 +3,6 @@ import { getMessages } from "next-intl/server"
 import Navbar from "@/components/layout/Navbar"
 import Footer from "@/components/layout/Footer"
 import { siteConfig } from "@/config"
-export default async function LocaleLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
-  const messages = await getMessages();
-
-  return (
-      <NextIntlClientProvider messages={messages}>
-        <Navbar />
-        {children}
-        <Footer />
-      </NextIntlClientProvider>
-  )
-}
 
 export async function generateMetadata({ params }: { params: { locale: Locale } }) {
   const { locale } = await params;
@@ -39,3 +24,16 @@ export async function generateMetadata({ params }: { params: { locale: Locale } 
     },
   }
 }
+
+export default async function LocaleLayout({ children }: LocaleLayoutProps) {
+  const messages = await getMessages();
+
+  return (
+    <NextIntlClientProvider messages={messages}>
+      <Navbar />
+      {children}
+      <Footer />
+    </NextIntlClientProvider>
+  )
+}
+

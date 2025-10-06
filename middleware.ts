@@ -10,8 +10,11 @@ export default createMiddleware({
 });
 
 export const config = {
-  // matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)']
-  
-  // Новый matcher говорит: "Применяй middleware ко всем путям, кроме тех, что ведут к api, папке _next или содержат точку в названии (т.е. являются файлами)".
-    matcher: ['/((?!api|_next|.*\\..*).*)']
+  matcher: [
+    // '/((?!api|_next/static|_next/image|favicon.ico).*)'
+    // '/((?!api|_next|.*\\..*).*)'
+    // '/((?!api|_next/static|_next/image|favicon.ico|admin).*)'
+    '/((?!api|_next/static|_next/image|admin|.*\\..*).*)'
+
+  ]
 };
