@@ -10,9 +10,18 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  // images: {
-  //   unoptimized: true,
-  // },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn.sanity.io',
+        port: '',
+        pathname: '/images/**',
+      },
+    ],
+
+    // unoptimized: true,
+  },
   /* config options here */
 }
 

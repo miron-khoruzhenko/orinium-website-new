@@ -7,12 +7,9 @@ import schemas from './sanity/schemas';
 import schemaTypes from './sanity/config/sanity.types';
 import languageField, { supportedLanguages } from './sanity/config/sanity.language';
 import { structure } from './sanity/config/sanity.structure';
+import { baseOptions } from './sanity/config/sanity.client';
 
-export const baseOptions = {
-	projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '9a2roeky',
-	dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
-	apiVersion: '2025-10-06',
-}
+
 
 const config = defineConfig({
 	...baseOptions,

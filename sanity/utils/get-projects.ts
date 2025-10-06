@@ -1,14 +1,25 @@
-import { baseOptions } from '@/sanity.config';
 import { createClient, groq } from 'next-sanity';
+import { baseOptions } from '../config/sanity.client';
 
-export async function getProjects(lang: string) {
+export type SanityProject = {
+  _id: string;
+  slug: string;
+  name: string;
+  title: string | null;
+  subtitle: string | null;
+  imageUrl: string;
+  imageAlt: string | null;
+  content: any[];
+};
+
+export async function getProjects(lang: Locale) {
 	const client = createClient({
 		...baseOptions,
 		useCdn: process.env.NODE_ENV === 'production',
 	})
 
-	client.fetch(
-		groq`*[_type == "project" && language == "${lang}"] {
+	return client.fetch(
+		groq`*[_type == "project" && language == $lang] {
 			_id,
 			"slug": slug.current,
 			"name": project_name,
@@ -17,7 +28,7 @@ export async function getProjects(lang: string) {
 			"imageUrl": image.asset->url,
 			"imageAlt": image.alt,
 			content
-		}`
+		}`, { lang }
 	)
 
 }

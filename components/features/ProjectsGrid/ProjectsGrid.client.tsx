@@ -1,6 +1,8 @@
 "use client"
 
 
+import PortableTextRenderer from "@/components/layout/PortableTextRenderer";
+import { SanityProject } from "@/sanity/utils/get-projects";
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import Image from "next/image";
@@ -9,13 +11,14 @@ import { useRef } from "react"
 interface ProjectGridClientProps {
 	title: string;
 	subtitle: string;
-	projects: {
-		name: string;
-		fullName: string;
-		description: string;
-		specs: string[];
-		image: string;
-	}[];
+	// projects: {
+	// 	name: string;
+	// 	fullName: string;
+	// 	description: string;
+	// 	specs: string[];
+	// 	image: string;
+	// }[];
+	projects: SanityProject[];
 }
 
 export default function ProjectsGridClient({title, subtitle, projects} : ProjectGridClientProps) {
@@ -47,15 +50,16 @@ export default function ProjectsGridClient({title, subtitle, projects} : Project
 										width={600}
 										height={400}
 										loading="lazy"
-										src={project.image || "/placeholder.svg"}
+										src={project.imageUrl || "/placeholder.svg"}
 										alt={project.name}
 										className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all"
 									/>
 								</div>
 								<div className="p-8">
 									<div className="font-display font-bold text-3xl mb-2">{project.name}</div>
-									<div className="text-sm text-gray-600 mb-4">{project.fullName}</div>
-									<p className="leading-relaxed mb-6">{project.description}</p>
+									<div className="text-sm text-gray-600 mb-4">{project.subtitle}</div>
+									{project.content && <PortableTextRenderer value={project.content} />}
+									{/* <p className="leading-relaxed mb-6">{project.}</p>
 									<ul className="space-y-2">
 										{project.specs.map((spec, i) => (
 											<li key={i} className="flex items-start gap-2 text-sm">
@@ -63,7 +67,7 @@ export default function ProjectsGridClient({title, subtitle, projects} : Project
 												{spec}
 											</li>
 										))}
-									</ul>
+									</ul> */}
 								</div>
 							</motion.div>
 						))}

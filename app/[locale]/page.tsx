@@ -6,13 +6,16 @@ import PartnersGrid from "@/components/features/PartnersGrid";
 import TeamSection from "@/components/sections/TeamSection";
 import ContactForm from "@/components/features/ContactForm";
 
-export default function Home() {
+export default async function Home({ params }: { params: { locale: Locale } }) {
+  const { locale } = await params;
+  console.log("Rendering home page for locale:", locale);
+
   return (
     <main className="min-h-screen bg-white">
       <Hero />
       <AboutSection />
       <RDGrid />
-      <ProjectsGrid />
+      <ProjectsGrid locale={locale} />
       <PartnersGrid />
       <TeamSection />
       <ContactForm />

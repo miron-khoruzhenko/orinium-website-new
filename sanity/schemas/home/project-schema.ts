@@ -1,5 +1,6 @@
 import languageField from "@/sanity/config/sanity.language";
 import { slugify } from "@/sanity/utils/base-lang-slug";
+import { imageRatioValidation } from "@/sanity/utils/image-validator";
 import { Rule } from "sanity";
 
 
@@ -54,7 +55,8 @@ const project_schema = {
 					title: 'Alternative Text',
 					type: 'string',
 				},
-			]
+			],
+			validation: imageRatioValidation({ width: 600, height: 400 })
 		},
 		{
 			name: 'content',
