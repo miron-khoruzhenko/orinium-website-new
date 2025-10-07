@@ -6,7 +6,6 @@ import { ProjectSectionData } from '@/types/sanity'
 // export default async function ProjectsGrid({ params } : {params: {locale: string}}) {
 export default async function ProjectsGrid(props: { data: ProjectSectionData | null }) {
 	const t = await getTranslations("home.projects")
-	console.log("ProjectsGrid received data:", props.data?.projects)
 	const backupProjects = [
 		{
 			_id: "ares",

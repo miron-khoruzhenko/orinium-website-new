@@ -12,7 +12,10 @@ export async function POST(request: NextRequest) {
 
     if (!isValidSignature) {
       return new Response('Invalid secret', { status: 401 })
-    }
+    }else {
+			console.log('Valid secret, proceeding with revalidation...')
+		}
+
 
     // 2. Вызываем функцию ревалидации
     // Тег 'sanity' мы добавили ранее в `sanityFetch`
