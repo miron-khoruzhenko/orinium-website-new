@@ -11,12 +11,18 @@ export const sanityClient = createClient({
 type SanityFetchParams = {
   query: string;
   params?: Record<string, any>;
+  revalidate?: number; // Время в секундах или false для отключения
 };
 
-export async function sanityFetch<T>({ query, params = {} }: SanityFetchParams): Promise<T> {
+export async function sanityFetch<T>({ query, params = {}, revalidate }: SanityFetchParams): Promise<T> {
   const useCdn = sanityClient.config().useCdn
-  
+
   return sanityClient.fetch(query, params, {
-    cache: useCdn ? 'force-cache' : 'no-store',
+    next: {
+      // Устанавливаем тег для ревалидации по требованию
+      tags: ['sanity'],
+      // Управляем ревалидацией по времени
+      revalidate: revalidate ?? (useCdn ? 3600 : 0), // По умолчанию: 1 час в продакшене, 0 в разработке
+    },
   });
 }
