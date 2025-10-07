@@ -3,29 +3,30 @@ import { type NextRequest, NextResponse } from 'next/server'
 import { parseBody } from 'next-sanity/webhook'
 
 export async function POST(request: NextRequest) {
+  // Добавляем логи для отладки
+  console.log('Revalidation endpoint hit!');
+
   try {
-    // 1. Проверяем секрет, который теперь приходит в заголовке
     const { isValidSignature, body } = await parseBody<{ _type: string }>(
       request,
       process.env.SANITY_REVALIDATE_SECRET,
     )
 
+    console.log(`Webhook signature validation: ${isValidSignature}`);
+
     if (!isValidSignature) {
       return new Response('Invalid secret', { status: 401 })
-    }else {
-			console.log('Valid secret, proceeding with revalidation...')
-		}
+    }
 
+    const tag = 'sanity'; // Наш тег для ревалидации
+    revalidateTag(tag);
 
-    // 2. Вызываем функцию ревалидации
-    // Тег 'sanity' мы добавили ранее в `sanityFetch`
-    revalidateTag('sanity')
+    console.log(`Successfully revalidated cache for tag: ${tag}`);
+    console.log('Request body:', body); // Посмотрим, что прислал Sanity
+    return NextResponse.json({ revalidated: true, now: Date.now() })
 
-    console.log(`Revalidated cache for tag: sanity`)
-    return NextResponse.json({ revalidated: true, now: Date.now(), body })
-
-  } catch (error) {
-    console.error('Error revalidating', error)
-    return new Response('Error revalidating', { status: 500 })
+  } catch (error: any) {
+    console.error('Error in revalidation endpoint:', error);
+    return new Response(error.message, { status: 500 })
   }
 }

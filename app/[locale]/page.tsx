@@ -17,7 +17,6 @@ export default async function Home({ params }: { params: { locale: Locale } }) {
     params: { lang: locale } 
   });
   
-  console.log("Fetched home page data:", data);
 
   return (
     <main className="min-h-screen bg-white">
