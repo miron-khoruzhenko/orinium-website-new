@@ -2,6 +2,7 @@ import { defaultTheme, defineConfig } from 'sanity';
 import { structureTool } from 'sanity/structure'
 import { visionTool } from '@sanity/vision'
 import { documentInternationalization } from '@sanity/document-internationalization'
+import { codeInput } from '@sanity/code-input'
 
 import schemas from './sanity/schemas';
 import schemaTypes from './sanity/config/sanity.types';
@@ -24,6 +25,7 @@ const config = defineConfig({
 			structure: structure
 		}),
 		visionTool(),
+		codeInput(),
 		// structureTool(),
 		documentInternationalization({
 			// documentation:

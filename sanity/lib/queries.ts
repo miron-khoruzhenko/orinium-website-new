@@ -52,3 +52,39 @@ export const HOME_PAGE_QUERY = groq`
     }
   }
 `;
+
+export const POSTS_QUERY = groq`
+  *[_type == "post" && language == $lang] | order(publishedAt desc) {
+    _id,
+    title,
+    "slug": slug.current,
+    "mainImageUrl": mainImage.asset->url,
+    "mainImageAlt": mainImage.alt,
+    excerpt,
+    publishedAt
+  }
+`;
+
+// ✅ Запрос для получения ОДНОГО поста по его slug
+export const POST_BY_SLUG_QUERY = groq`
+  *[_type == "post" && language == $lang && slug.current == $slug][0] {
+    _id,
+    title,
+    "slug": slug.current,
+    "mainImageUrl": mainImage.asset->url,
+    "mainImageAlt": mainImage.alt,
+    publishedAt,
+    author->{
+      name,
+      "pictureUrl": picture.asset->url
+    },
+    body[]{
+      ..., // Получаем все поля для всех блоков (например, _key, _type, style)
+      _type == "image" => { // Если тип блока - "image", то дополнительно...
+        "imageUrl": asset->url, // ...получаем URL картинки
+        "alt": alt,
+        "caption": caption
+      }
+    }
+  }
+`;

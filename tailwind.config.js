@@ -7,6 +7,41 @@ module.exports = {
   theme: {
     ...defaultConfig.theme,
     extend: {
+      typography: ({ theme }) => ({
+        DEFAULT: {
+          css: {
+            // --- Стили для основного текста (уже было) ---
+            p: {
+              marginTop: theme('spacing.5'),
+              marginBottom: theme('spacing.5'),
+            },
+
+            // --- Стили для заголовков H1-H4 ---
+            h1: {
+              fontFamily: theme('fontFamily.display'), // Poppins
+              fontWeight: '700',
+              marginTop: theme('spacing.16'),
+              marginBottom: theme('spacing.2'),
+            },
+            h2: {
+              fontFamily: theme('fontFamily.display'), // Poppins
+              fontWeight: '700',
+              marginTop: theme('spacing.12'),
+              marginBottom: theme('spacing.1'),
+            },
+            h3: {
+              fontFamily: theme('fontFamily.sans'), // Inter
+              fontWeight: '600', // Semibold
+              marginTop: theme('spacing.10'),
+            },
+            h4: {
+              fontFamily: theme('fontFamily.sans'), // Inter
+              fontWeight: '600', // Semibold
+              marginTop: theme('spacing.8'),
+            },
+          },
+        },
+      }),
 
       colors: {
         black: "#000000",
@@ -66,5 +101,8 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    require("@tailwindcss/typography"), // ✅ Убедитесь, что эта строка есть
+  ],
 }

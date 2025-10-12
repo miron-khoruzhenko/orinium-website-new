@@ -53,7 +53,7 @@ export const structure = (S: StructureBuilder) => {
 
   // 2. Собираем финальную структуру
   return S.list()
-    .title('Контент')
+    .title('Content')
     .items([
       S.listItem()
         .title('Homepage')

@@ -4,7 +4,7 @@ import { sendContactForm } from "@/lib/actions";
 import type React from "react"
 import { useState } from "react"
 import { Turnstile } from '@marsidev/react-turnstile';
-import Map from "./MapBlock";
+// import Map from "./MapBlock";
 import MapBlock from "./MapBlock";
 
 
