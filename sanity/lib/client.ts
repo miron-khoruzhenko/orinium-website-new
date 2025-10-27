@@ -3,7 +3,7 @@ import { baseOptions } from '../config/sanity.client';
 
 export const sanityClient = createClient({
   ...baseOptions,
-  useCdn: true,
+  useCdn: false,
 });
 
 type SanityFetchParams = {
