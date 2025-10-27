@@ -3,14 +3,14 @@ import { groq } from 'next-sanity';
 // ✅ Определяем и экспортируем наш главный запрос для домашней страницы
 export const HOME_PAGE_QUERY = groq`
   {
-    "hero": *[_type == "heroSection" && language == "$lang"][0],
-    "about": *[_type == "aboutSection" && language == "$lang"][0] {
+    "hero": *[_type == "heroSection" && language == $lang][0],
+    "about": *[_type == "aboutSection" && language == $lang][0] {
       ...,
       "imageUrl": image.asset->url,
       "imageAlt": image.alt
     },
-    "rnd": *[_type == "rndSection" && language == "$lang"][0],
-    "projectSection": *[_type == "projectSection" && language == "$lang"][0] {
+    "rnd": *[_type == "rndSection" && language == $lang][0],
+    "projectSection": *[_type == "projectSection" && language == $lang][0] {
       title,
       subtitle,
       "projects": featuredProjects[]->{
@@ -25,7 +25,7 @@ export const HOME_PAGE_QUERY = groq`
       }
     },
 
-    "partners": *[_type == "partnersSection" && language == "$lang"][0] {
+    "partners": *[_type == "partnersSection" && language == $lang][0] {
       title,
       subtitle,
       partners[]{ // Проходим по каждому партнеру
@@ -34,7 +34,7 @@ export const HOME_PAGE_QUERY = groq`
       }
     },
     
-    "team": *[_type == "teamSection" && language == "$lang"][0] {
+    "team": *[_type == "teamSection" && language == $lang][0] {
       title,
       subtitle,
       founders[]{ // Проходим по каждому основателю
@@ -54,7 +54,7 @@ export const HOME_PAGE_QUERY = groq`
 `;
 
 export const POSTS_QUERY = groq`
-  *[_type == "post" && language == "$lang"] | order(publishedAt desc) {
+  *[_type == "post" && language == $lang] | order(publishedAt desc) {
     _id,
     title,
     "slug": slug.current,

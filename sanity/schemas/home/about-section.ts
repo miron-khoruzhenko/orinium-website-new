@@ -6,6 +6,9 @@ const aboutSectionSchema = {
 	title: 'About Section',
 	type: 'document',
 	structureGroup: structureGroups.singleton,
+	options: {
+		singleton: true,
+	},
 	fields: [
 		{
 			name: 'language',
